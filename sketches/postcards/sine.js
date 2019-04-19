@@ -40,40 +40,60 @@ const sketch = () => {
       trimHeight
     )
 
+    const drawCircle = (translateCoords, arcParams, color) => {
+      context.save()
+      context.translate(...translateCoords)
+      context.fillStyle = color
+      context.beginPath()
+      context.arc(...arcParams)
+      context.fill()
+      context.restore()
+    }
+    // draw left eye
+    drawCircle(
+      [(trimWidth / 4) + (bleed * 0.5), height / 2],
+      [0, 0, 0.75, 0, 2 * Math.PI],
+      colors.white
+    )
+
+    // draw left eye-ball
+    drawCircle(
+      [(trimWidth / 4) + (bleed * 0.5), height / 2],
+      [0, 0, 0.25, 0, 2 * Math.PI],
+      colors.black
+    )
+
+    // draw right eye
+    drawCircle(
+      [3 * (trimWidth / 4) + (bleed * 1.5), height / 2],
+      [0, 0, 0.75, 0, 2 * Math.PI],
+      colors.white
+    )
+
+    // draw right eye-ball
+    drawCircle(
+      [3 * (trimWidth / 4) + (bleed * 1.5), height / 2],
+      [0, 0, 0.25, 0, 2 * Math.PI],
+      colors.black
+    )
+
+    // draw some waves
     const step = trimWidth / 30
     const circleDiameter = bleed * 0.5
     for (let i = bleed + step; i < trimWidth; i += step) {
-      context.save()
-      context.translate(
-        i,
-        height / 2
-      )
-
       // draw sine wave
-      context.fillStyle = colors.red
-      context.beginPath()
-      context.arc(
-        0,
-        Math.sin(i),
-        circleDiameter,
-        0,
-        2 * Math.PI
+      drawCircle(
+        [i, height / 2],
+        [0, Math.sin(i), circleDiameter, 0, 2 * Math.PI],
+        colors.green
       )
-      context.fill()
 
       // draw cosine wave
-      context.fillStyle = colors.green
-      context.beginPath()
-      context.arc(
-        0,
-        Math.cos(i + 0.5 * Math.PI),
-        circleDiameter,
-        0,
-        2 * Math.PI
+      drawCircle(
+        [i, height / 2],
+        [0, Math.cos(i + 0.5 * Math.PI), circleDiameter, 0, 2 * Math.PI],
+        colors.pink
       )
-      context.fill()
-
-      context.restore()
     }
   }
 }
