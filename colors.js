@@ -5,5 +5,5 @@ export default {
   indigo: '#212e53',
   pink: '#ebaca2',
   red: '#ce6a6b',
-  white: 'white',
+  white: 'white'
 }

@@ -8,7 +8,7 @@ import colors from '../../colors'
 import {
   randomElement,
   randomFloat,
-  randomInt,
+  randomInt
 } from '../../util'
 
 // Specify some output parameters so if we want to print it looks good
@@ -35,7 +35,7 @@ const sketch = () => {
       0,
       0,
       width,
-      height,
+      height
     )
 
     // rotate the canvas 45 degrees to give the meteors a slant
@@ -49,7 +49,7 @@ const sketch = () => {
     for (let i = 0; i < trimWidth + 0.5; i += step) {
       // draw left to right at random y coordinates
       // randomly pick a width, tail length, and color
-      let x = i - 0.5;
+      let x = i - 0.5
       let y = randomFloat(-0.5, trimHeight + 0.5)
       let tailWidth = randomFloat(step * 0.05, step * 0.5)
       let length = randomFloat(1, 2)

@@ -46,7 +46,7 @@ const sketch = () => {
     const yPadding = (yExtra * 0.5) + gutter
 
     for (let x = xPadding; x < (xLimit * step); x += step) {
-      for (let y = yPadding; y < (yLimit * step);  y += step) {
+      for (let y = yPadding; y < (yLimit * step); y += step) {
         // rotate some values
         let random = Math.random()
         let rotate = false
@@ -67,7 +67,7 @@ const sketch = () => {
         points.push({
           rotation: rotate,
           position: [x, y],
-          color,
+          color
         })
       }
     }
@@ -90,7 +90,7 @@ const sketch = () => {
       bleed,
       bleed,
       trimWidth,
-      trimHeight,
+      trimHeight
     )
 
     // make a grid of coordinates to work with
